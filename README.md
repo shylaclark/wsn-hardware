@@ -1,2 +1,5 @@
 # wsn-hardware
-Pi and Arduino programs used to set up wireless sensor network.
+- Wiki with more details on hardware setup
+- Project tracker
+
+
