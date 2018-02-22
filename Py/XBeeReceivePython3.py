@@ -2,7 +2,7 @@
 # Check for new /dev/ttyUSB* before running
 
 
-# From xbee import XBee, ZigBee
+# from xbee import XBee, ZigBee
 import serial
 
 serial_port = serial.Serial('/dev/ttyUSB0', 9600)
