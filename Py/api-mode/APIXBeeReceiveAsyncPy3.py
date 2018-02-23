@@ -3,13 +3,15 @@
 # XBee radios in API mode - not transparent mode
 # Threaded synchronous mode 
 
+
 import serial
 import time
 from xbee import ZigBee
 
+# Open serial port
 serial_port = serial.Serial('/dev/ttyUSB0', 9600)
 
-def print_data(data):
+def message_received(data):
     """
     This method is called whenever data is received
     from the associated XBee device. Its first and
@@ -18,13 +20,16 @@ def print_data(data):
     """
     print (data)
 
-xbee = ZigBee(serial_port, callback=print_data)
+# Create API object, which spawns a new thread
+xbee = ZigBee(serial_port, callback=message_received)
 
+# Do other stuff in the main thread
 while True:
     try:
         time.sleep(0.001)
     except KeyboardInterrupt:
         break
 
+# Always call halt() before closing serial for proper thread shutdown
 xbee.halt()
 serial_port.close()
