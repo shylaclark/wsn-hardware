@@ -1,12 +1,10 @@
 #! /usr/bin/python2.7.13
 # Check for new /dev/ttyUSB* before running
+# For XBees in transparent mode - not API mode
 
-
-# from xbee import XBee, ZigBee
 import serial
 
 serial_port = serial.Serial('/dev/ttyUSB0', 9600)
-# xbee = ZigBee(serial_port)
 
 while True:
     try:
