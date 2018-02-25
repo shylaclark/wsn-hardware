@@ -8,7 +8,7 @@ serial_port = serial.Serial('/dev/ttyUSB0', 9600)
 
 while True:
     try:
-        print ("waiting for frame...")
+        print ("Receiving transmissions in transparent mode...")
         data = serial_port.readline()
         print (data)
         

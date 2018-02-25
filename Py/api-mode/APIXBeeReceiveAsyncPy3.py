@@ -26,7 +26,8 @@ xbee = ZigBee(serial_port, callback=message_received)
 # Do other stuff in the main thread
 while True:
     try:
-        time.sleep(0.001)
+        print ("Where is the message?")
+        time.sleep(1)
     except KeyboardInterrupt:
         break
 
