@@ -1,25 +1,23 @@
-int sensorPin = 0;    // select the input pin for the potentiometer
-int sensorValue = 0;  // variable to store the value coming from the sensor
- 
-int sensorVCC = 13;
- 
+
+// Variable to store the value coming from the sensor
+int LWS = 0;
+
 void setup() {
-  // declare the ledPin as an OUTPUT:
-   Serial.begin(9600);  
-   pinMode(sensorVCC, OUTPUT); 
-   digitalWrite(sensorVCC, LOW);
+    // opens serial port, sets data rate to 9600 bps
+  Serial.begin(9600);
 }
- 
+
 void loop() {
-  // power the sensor
-  digitalWrite(sensorVCC, HIGH);
-  delay(1000); //make sure the sensor is powered
-  // read the value from the sensor:
-  sensorValue = analogRead(sensorPin); 
-  //stop power 
-  digitalWrite(sensorVCC, LOW);  
-  //wait
-  delay(100);          
-  Serial.print("sensor = " );                       
-  Serial.println(sensorValue);                   
+
+  // Read from A0 and store in LWS
+  LWS = analogRead(A0);
+  printReading(LWS);
+  delay(2000);
+
 }
+
+void printReading(int LWS) {
+  Serial.print("LWS currently: ");
+  Serial.println(LWS);
+}
+
