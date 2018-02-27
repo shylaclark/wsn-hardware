@@ -1,5 +1,8 @@
 #include <XBee.h>
 
+// Sender sends a ZigBee Transmit Request API frame to the XBee module, 
+// containing the destination address and the message.
+
 XBee xbee = XBee();
 
 void setup() {
@@ -9,15 +12,16 @@ void setup() {
 }
 
 // Specify the address of the remote XBee (this is the SH + SL)
-XBeeAddress64 addr64 = XBeeAddress64(0x0013a200, 0x415b8b98);
+// Special value 0x0000000000000000 can be used to address coordinator
+XBeeAddress64 addr64 = XBeeAddress64(0x00000000, 0x00000000);
 
 int data = analogRead(A0); 
 uint8_t* payload = (uint8_t*) data;
 
-  //uint8_t* payload = analogRead(A0);
-  
-  ZBTxRequest zbTx = ZBTxRequest(addr64, payload, sizeof(payload));
+//uint8_t* payload = analogRead(A0);
 
+// ZB Transmit Request API frame containing dest. address + message
+ZBTxRequest zbTx = ZBTxRequest(addr64, payload, sizeof(payload));
 
 void loop() {
   // Send your request
