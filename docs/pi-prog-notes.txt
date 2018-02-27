@@ -1,0 +1,31 @@
+﻿$ mysql -u root
+FLUSH PRIVILEGES;
+SET PASSWORD FOR 'root'@'localhost' = PASSWORD('$$Farm2much');
+
+CREATE TABLE sensors.leafwetness (sensor_node char(30), sensor_value int, sensor_event timestamp);
+
+INSERT INTO sensors.leafwetness VALUES ('test device', 107, NULL);
+
+SELECT * FROM sensors.leafwetness;
+
+
+sudo apt-get update 
+sudo apt-get -y install python3-mysql.connector
+sudo apt-get install mysql-utilities
+
+
+Switch between Python versions
+
+l
+
+update-alternatives --list python
+	update-alternatives: error: no alternatives for python
+
+sudo update-alternatives --install /usr/bin/python python /usr/bin/python2.7 1
+	update-alternatives: using /usr/bin/python2.7 to provide /usr/bin/python (python) in auto mode
+sudo update-alternatives --install /usr/bin/python python /usr/bin/python3.5 2
+	update-alternatives: using /usr/bin/python3.4 to provide /usr/bin/python (python) in auto mode
+python –version
+	Python 3.5.3
+
+
