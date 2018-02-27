@@ -23,4 +23,5 @@ void loop() {
   // Send your request
   xbee.send(zbTx);
   delay(2000);
+  Serial.println("Sent");
 }
