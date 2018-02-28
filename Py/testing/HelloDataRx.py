@@ -10,6 +10,7 @@ from xbee import ZigBee
 
 # Open serial port on Pi
 # serial_port = serial.Serial('/dev/ttyUSB0', 9600)
+# Open serial port on Mac
 serial_port = serial.Serial('/dev/tty.usbserial-DN03FEEK', 9600)
 
 def message_received(data):
