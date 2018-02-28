@@ -6,7 +6,7 @@
 from xbee import ZigBee
 import serial
 
-serial_port = serial.Serial('/dev/ttyUSB0', 9600)
+serial_port = serial.Serial('/dev/tty.usbserial-DN03FEEK', 9600)
 xbee = ZigBee(serial_port)
 
 while True:
