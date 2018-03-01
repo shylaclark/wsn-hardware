@@ -12,7 +12,7 @@ void loop() {
   // Read from A0 and store in LWS
   LWS = analogRead(A0);
   printReading(LWS);
-  delay(2000);
+  delay(5000);
 
 }
 
